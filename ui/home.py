@@ -39,7 +39,10 @@ TRUST = ('<div class="trust"><div class="t">Complies with</div><div class="row">
          '<span>Valley Water Rebate Program</span><span>California MWELO</span>'
          '<span>AB 1572</span><span>CIMIS climate data</span></div></div>')
 HOME_CSS = """<style>
-.aud-banner { background: #2E5A43; color: #F4F1EA !important; text-align: center; font-size: 1.15rem; font-weight: 600; letter-spacing: .01em; padding: .75rem 1rem; border-radius: 14px; margin: 0 0 1rem; }.st-key-herocard h1, .st-key-hero h1 { font-size: clamp(2rem, 3.2vw, 2.6rem) !important; line-height: 1.1 !important; }.st-key-herophoto { position: relative; }
+.aud-banner { background: #2E5A43; color: #F4F1EA !important; text-align: center; font-size: 1.35rem; font-weight: 600; letter-spacing: .01em; padding: .75rem 1rem; border-radius: 14px; margin: 0 0 1rem; }
+.st-key-herocard { max-width: 560px !important; }
+.st-key-herocard h1, .st-key-hero h1 { font-size: clamp(1.9rem, 2.8vw, 2.3rem) !important; line-height: 1.1 !important; }
+.st-key-herophoto { position: relative; }
 .st-key-herophoto .trust { position: absolute; right: 2rem; bottom: 2rem; margin: 0; text-align: right; max-width: 34%; }
 .st-key-herophoto .trust .t { color: rgba(255,255,255,.85); }
 .st-key-herophoto .trust .row { justify-content: flex-end; gap: .3rem 1.4rem; font-size: 1.05rem;
