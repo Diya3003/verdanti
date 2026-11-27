@@ -98,11 +98,9 @@ def plan():
 
 
 def plants():
-    st.markdown('<h1 style="margin-top:0">Plant library</h1>'
-                '<p class="note"><b>Everything in this app is built on this list.</b> Every plant the designer picks, '
-                'every coverage number and every rebate estimate comes from Valley Water\'s official list of '
-                'rebate-qualifying plants: 2,700+ plants, each with its mature size. If a plant isn\'t here, '
-                'it doesn\'t count toward your rebate.</p>', unsafe_allow_html=True)
+       st.markdown('<h1 style="margin-top:0">Plant library</h1>'
+                '<p class="note">Every plant used in our designs comes from this list, and every one '
+                'qualifies for Valley Water\'s lawn rebate.</p>', unsafe_allow_html=True)
     q = st.text_input("Search by scientific or common name", "sage", label_visibility="collapsed",
                       placeholder="Search: sage, manzanita, lavender…")
     res = search_valley_water(q, 80)
