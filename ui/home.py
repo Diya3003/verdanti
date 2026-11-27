@@ -41,6 +41,7 @@ TRUST = ('<div class="trust"><div class="t">Complies with</div><div class="row">
 HOME_CSS = """<style>
 .aud-banner { background: #2E5A43; color: #F4F1EA !important; text-align: center; font-size: 1.25rem; font-weight: 600; letter-spacing: .01em; padding: .5rem 1rem; border-radius: 12px; margin: 0 0 1.6rem; }
 .roadmap .rm-t { font-family: 'Inter', system-ui, sans-serif !important; font-size: 1.2rem !important; line-height: 1.5 !important; }
+.countdown { font-size: 1.05rem !important; }
 .hero-title { font-size: clamp(1.8rem, 3vw, 2.7rem) !important; font-weight: 600 !important; line-height: 1.1 !important; text-align: center; color: #1D2A22 !important; margin: 0 0 1.4rem !important; padding: 0 !important; }
 @media (min-width: 900px) { .hero-title { white-space: nowrap; } }
 .hero-title em { font-style: normal !important; color: #2E5A43 !important; }
@@ -137,27 +138,23 @@ def for_hoas():
 
 
 FAQS = [
-    ("Do I have to replace my whole lawn?",
-     "No. Outline only what you want to change: a parkway strip, one side yard or just the front. Each area is designed separately."),
-    ("Do I really have to apply before I start?",
-     "Yes. Valley Water requires an application and pre-inspection before any lawn is removed. Projects started early don't qualify, "
-     "and sites that are denied can't reapply for three years."),
-    ("Will the rebate cover the whole project?",
-     "Sometimes most of it. At $2 or more per square foot, a 500 sq ft lawn earns at least $1,000. Doing it yourself typically "
+    ("When do I need to apply for the Valley Water rebate?",
+     "Before you remove any lawn. Valley Water requires an application and a pre-inspection first. Projects started early don't "
+     "qualify, and sites that are denied can't reapply for three years."),
+    ("How much of my project will rebates cover?",
+     "It depends on how you do it. At $2 or more per square foot, a 500 sq ft lawn earns at least $1,000. Doing it yourself typically "
      "costs about $3 to $8 per square foot, so the rebate can cover a quarter to two-thirds. Hiring a landscaper in California "
      "typically runs $15 to $25 per square foot, so the rebate covers about a tenth. Each design in the studio shows the "
      "numbers for your own lawn."),
-    ("Will a water-wise garden look brown and dead in summer?",
-     "Not when it's designed well. The plant list mixes evergreen shrubs, grasses and flowers with different bloom seasons, so "
-     "something looks good year-round. Plants need regular water their first year while roots establish."),
+    ("How much upkeep does a water-wise garden need?",
+     "Less than a lawn. There is no mowing or weekly watering. Plants need regular water their first year while roots establish. "
+     "After that, most need only occasional deep watering in summer, fresh mulch about once a year, and a light trim once or twice a year."),
+    ("How does verdanti.ai create my design?",
+     "It reads your photo for sun, shade, trees and the style of your house, then chooses plants only from Valley Water's "
+     "rebate-qualifying list. You see the garden on a photo of your own yard, along with the full plant list."),
     ("What happens to my sprinklers?",
      "Spray sprinklers are usually converted to drip irrigation, which waters roots directly. Valley Water also offers rebates "
      "for drip conversion and smart controllers."),
-    ("Can my HOA stop me from replacing my lawn?",
-     "California law limits HOAs from banning water-efficient landscaping on your own lot, though they can still have design "
-     "guidelines. Check your HOA's rules, and upload their approved plant list in the studio."),
-    ("Is the preview really my yard?",
-     "Yes. The AI only repaints the area you outline, and the app restores every pixel of your house, trees and paths from your photo."),
     ("What happens to my photos?",
      "Your project saves to a private link so you can come back to it, and you can delete it anytime on My designs. "
      "Photos are sent to OpenAI to create the design; OpenAI doesn't use them for training."),
