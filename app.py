@@ -61,3 +61,18 @@ if page != "studio" and (st.session_state.get("_bg_ready") or any(a.get("job_id"
  "plants": pages_misc.plants, "saved": pages_misc.saved, "privacy": pages_misc.privacy}.get(page, home.render)()
 
 state.autosave()      # every change is saved to the backend (engine/store.py)
+
+# ── go to the top of the page when switching pages ──
+if st.session_state.get("_last_page") != page:
+    st.session_state["_last_page"] = page
+    st.session_state["_nav_n"] = st.session_state.get("_nav_n", 0) + 1
+    import streamlit.components.v1 as components
+    components.html(f"""<script>// page change {st.session_state["_nav_n"]}
+const d = window.parent.document;
+const top = () => {{
+  const m = d.querySelector('[data-testid="stMain"]') || d.querySelector('section.main');
+  if (m) m.scrollTo(0, 0);
+  window.parent.scrollTo(0, 0);
+}};
+top(); setTimeout(top, 100); setTimeout(top, 400);
+</script>""", height=0)
