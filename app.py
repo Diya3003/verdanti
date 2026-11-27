@@ -70,9 +70,10 @@ if st.session_state.get("_last_page") != page:
     components.html(f"""<script>// page change {st.session_state["_nav_n"]}
 const d = window.parent.document;
 const top = () => {{
-  const m = d.querySelector('[data-testid="stMain"]') || d.querySelector('section.main');
-  if (m) m.scrollTo(0, 0);
+  const nav = d.querySelector('.st-key-nav');
+  if (nav) nav.scrollIntoView({{block: 'start'}});
+  d.querySelectorAll('*').forEach(el => {{ if (el.scrollTop > 0) el.scrollTop = 0; }});
   window.parent.scrollTo(0, 0);
 }};
-top(); setTimeout(top, 100); setTimeout(top, 400);
+[0, 150, 500, 1000].forEach(ms => setTimeout(top, ms));
 </script>""", height=0)
