@@ -31,34 +31,42 @@ def hero_photo():
     return pairs[0][2] if pairs else None
 
 
+AUDIENCE = '<p class="aud">For homeowners and HOAs in Santa Clara County</p>'
 HEADLINE = "<h1>Replace your lawn with <em>a drought-tolerant garden</em></h1>"
-LEAD = ('<p class="lead">For homeowners and HOAs in Santa Clara County. Upload a photo of your lawn and see it '
-        'transformed into a water-wise garden. From there, see the rebates you qualify for and find '
-        'local landscapers to bring it to life.</p>')
+LEAD = ('<p class="lead">Upload a photo of your lawn and see it transformed into a water-wise garden. '
+        'From there, see the rebates you qualify for and find local landscapers to bring it to life.</p>')
+TRUST = ('<div class="trust"><div class="t">Complies with</div><div class="row">'
+         '<span>Valley Water Rebate Program</span><span>California MWELO</span>'
+         '<span>AB 1572</span><span>CIMIS climate data</span></div></div>')
+HOME_CSS = """<style>
+.aud { font-size: 1.3rem; font-weight: 600; color: #2E5A43; margin: 0 0 .7rem; }
+.st-key-herophoto .trust { margin: 1.6rem 0 0; }
+.st-key-herophoto .trust .t { color: rgba(255,255,255,.85); }
+.st-key-herophoto .trust .row { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.st-key-cta_home button, .st-key-cta_hoa button { padding: .9rem 2rem !important; min-height: 3.4rem; }
+.st-key-cta_home button p, .st-key-cta_hoa button p { font-size: 1.15rem !important; }
+</style>"""
+
 
 # ───────────────────────────── hero ──────────────────────────────────────────
 def photo_hero(path):
     img = Image.open(path).convert("RGB"); img.thumbnail((1800, 1800))
     st.markdown(f"<style>.st-key-herophoto {{ background-image: linear-gradient(180deg, rgba(0,0,0,0) 40%, "
-                f"rgba(0,0,0,.25)), url('data:image/jpeg;base64,{theme.img_b64(img, 80)}'); }}</style>",
+                f"rgba(0,0,0,.55)), url('data:image/jpeg;base64,{theme.img_b64(img, 80)}'); }}</style>",
                 unsafe_allow_html=True)
     with st.container(key="herophoto"):
         with st.container(key="herocard"):
-            st.markdown(HEADLINE + LEAD, unsafe_allow_html=True)
-            b1, _ = st.columns([1, 1.6])
-            b1.button("Design my lawn  →", type="primary", on_click=go, args=("studio",), use_container_width=True)
+            st.markdown(AUDIENCE + HEADLINE + LEAD, unsafe_allow_html=True)
+        st.markdown(TRUST, unsafe_allow_html=True)
 
 
 def dark_hero():
     with st.container(key="hero"):
         left, right = st.columns([1.25, 1], gap="large")
         with left:
-            st.markdown(HEADLINE + LEAD, unsafe_allow_html=True)
-            b1, _ = st.columns([1, 1.6])
-            b1.button("Design my lawn  →", type="primary", on_click=go, args=("studio",), use_container_width=True)
+            st.markdown(AUDIENCE + HEADLINE + LEAD, unsafe_allow_html=True)
         with right:
             st.markdown(theme.SPRIG, unsafe_allow_html=True)
-
 
 # ───────────────────────────── sections ──────────────────────────────────────
 def roadmap(steps, dark=False):
@@ -161,11 +169,11 @@ def faqs():
 
 
 def render():
+    st.markdown(HOME_CSS, unsafe_allow_html=True)
     photo = hero_photo()
     photo_hero(photo) if photo else dark_hero()
-    st.markdown('<div class="trust"><div class="t">Complies with</div><div class="row">'
-                '<span>Valley Water Rebate Program</span><span>California MWELO</span>'
-                '<span>AB 1572</span><span>CIMIS climate data</span></div></div>', unsafe_allow_html=True)
+    if not photo:
+        st.markdown(TRUST, unsafe_allow_html=True)
     pairs = gallery_pairs()
     if len(pairs) > 1:
         st.markdown('<div class="section-title">Real yards, redesigned</div>', unsafe_allow_html=True)
