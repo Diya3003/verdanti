@@ -31,10 +31,10 @@ def hero_photo():
     return pairs[0][2] if pairs else None
 
 
-HEADLINE = "<h1>What if your thirsty lawn became <em>a garden that pays?</em></h1>"
-LEAD = ('<p class="lead">Upload a photo of your lawn. Get a professional, water-wise planting design, '
-        'a photorealistic preview of your own yard, and a plan that qualifies for Valley Water rebates.</p>')
-
+HEADLINE = "<h1>Replace your lawn with <em>a drought-tolerant garden</em></h1>"
+LEAD = ('<p class="lead">For homeowners and HOAs in Santa Clara County. Upload a photo of your lawn and see it '
+        'transformed into a water-wise garden. From there, see the rebates you qualify for and find '
+        'local landscapers to bring it to life.</p>')
 
 # ───────────────────────────── hero ──────────────────────────────────────────
 def photo_hero(path):
