@@ -75,5 +75,7 @@ const goTop = () => {{
   d.querySelectorAll('*').forEach(el => {{ if (el.scrollTop > 0) el.scrollTop = 0; }});
   window.parent.scrollTo(0, 0);
 }};
-[0, 150, 500, 1000].forEach(ms => setTimeout(goTop, ms));
+const timers = [0, 150, 500, 1000].map(ms => setTimeout(goTop, ms));
+const stop = () => timers.forEach(clearTimeout);
+['wheel', 'touchstart', 'keydown'].forEach(ev => d.addEventListener(ev, stop, {{once: true}}));
 </script>""", height=0)
