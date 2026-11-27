@@ -31,7 +31,7 @@ def hero_photo():
     return pairs[0][2] if pairs else None
 
 
-AUDIENCE = '<p class="aud">For Homeowners and HOAs in Santa Clara County</p>'
+AUDIENCE = '<div class="aud-banner">For Homeowners and HOAs in Santa Clara County</div>'
 HEADLINE = "<h1>Replace Your Lawn with a<br><em>Drought-Tolerant Garden</em></h1>"
 LEAD = ('<p class="lead">Upload a photo of your lawn and see it transformed into a water-wise garden. '
         'From there, see the rebates you qualify for and find local landscapers to bring it to life.</p>')
@@ -39,8 +39,7 @@ TRUST = ('<div class="trust"><div class="t">Complies with</div><div class="row">
          '<span>Valley Water Rebate Program</span><span>California MWELO</span>'
          '<span>AB 1572</span><span>CIMIS climate data</span></div></div>')
 HOME_CSS = """<style>
-.st-key-herocard p.aud, .st-key-hero p.aud { font-size: clamp(1.6rem, 2.4vw, 2rem) !important; font-weight: 600 !important; line-height: 1.2 !important; color: #2E5A43 !important; margin: 0 0 .8rem !important; }
-.st-key-herocard h1, .st-key-hero h1 { font-size: clamp(2rem, 3.2vw, 2.6rem) !important; line-height: 1.1 !important; }.st-key-herophoto { position: relative; }
+.aud-banner { background: #2E5A43; color: #F4F1EA !important; text-align: center; font-size: 1.15rem; font-weight: 600; letter-spacing: .01em; padding: .75rem 1rem; border-radius: 14px; margin: 0 0 1rem; }.st-key-herocard h1, .st-key-hero h1 { font-size: clamp(2rem, 3.2vw, 2.6rem) !important; line-height: 1.1 !important; }.st-key-herophoto { position: relative; }
 .st-key-herophoto .trust { position: absolute; right: 2rem; bottom: 2rem; margin: 0; text-align: right; max-width: 34%; }
 .st-key-herophoto .trust .t { color: rgba(255,255,255,.85); }
 .st-key-herophoto .trust .row { justify-content: flex-end; gap: .3rem 1.4rem; font-size: 1.05rem;
@@ -62,7 +61,7 @@ def photo_hero(path):
                 unsafe_allow_html=True)
     with st.container(key="herophoto"):
         with st.container(key="herocard"):
-            st.markdown(AUDIENCE + HEADLINE + LEAD, unsafe_allow_html=True)
+            st.markdown(HEADLINE + LEAD, unsafe_allow_html=True)
         st.markdown(TRUST, unsafe_allow_html=True)
 
 
@@ -70,7 +69,7 @@ def dark_hero():
     with st.container(key="hero"):
         left, right = st.columns([1.25, 1], gap="large")
         with left:
-            st.markdown(AUDIENCE + HEADLINE + LEAD, unsafe_allow_html=True)
+            st.markdown(HEADLINE + LEAD, unsafe_allow_html=True)
         with right:
             st.markdown(theme.SPRIG, unsafe_allow_html=True)
 
@@ -176,6 +175,7 @@ def faqs():
 
 def render():
     st.markdown(HOME_CSS, unsafe_allow_html=True)
+    st.markdown(AUDIENCE, unsafe_allow_html=True)
     photo = hero_photo()
     photo_hero(photo) if photo else dark_hero()
     if not photo:
