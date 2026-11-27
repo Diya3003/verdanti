@@ -43,7 +43,7 @@ HOME_CSS = """<style>
 .hero-title { font-size: clamp(1.8rem, 3vw, 2.7rem) !important; font-weight: 600 !important; line-height: 1.1 !important; text-align: center; color: #1D2A22 !important; margin: 0 0 .8rem !important; padding: 0 !important; }
 @media (min-width: 900px) { .hero-title { white-space: nowrap; } }
 .hero-title em { font-style: normal !important; color: #2E5A43 !important; }
-.hero-sub { font-size: 1.2rem !important; line-height: 1.6 !important; color: #4E5348 !important; text-align: center; max-width: 40rem; margin: 0 auto 1.6rem !important; }
+.hero-sub { font-size: 1.2rem !important; line-height: 1.6 !important; color: #4E5348 !important; text-align: center; max-width: 60rem; margin: 0 auto 1.6rem !important; }
 .st-key-herophoto { position: relative; min-height: 460px !important; }
 .st-key-herophoto .trust { position: absolute; right: 2rem; bottom: 2rem; margin: 0; text-align: right; max-width: 34%; }
 .st-key-herophoto .trust .t { color: rgba(255,255,255,.85); }
