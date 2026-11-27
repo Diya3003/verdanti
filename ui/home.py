@@ -40,6 +40,7 @@ TRUST = ('<div class="trust"><div class="t">Complies with</div><div class="row">
          '<span>AB 1572</span><span>CIMIS climate data</span></div></div>')
 HOME_CSS = """<style>
 .aud-banner { background: #2E5A43; color: #F4F1EA !important; text-align: center; font-size: 1.25rem; font-weight: 600; letter-spacing: .01em; padding: .5rem 1rem; border-radius: 12px; margin: 0 0 1.6rem; }
+.roadmap .rm-t { font-family: 'Inter', system-ui, sans-serif !important; font-size: 1.2rem !important; line-height: 1.5 !important; }
 .hero-title { font-size: clamp(1.8rem, 3vw, 2.7rem) !important; font-weight: 600 !important; line-height: 1.1 !important; text-align: center; color: #1D2A22 !important; margin: 0 0 1.4rem !important; padding: 0 !important; }
 @media (min-width: 900px) { .hero-title { white-space: nowrap; } }
 .hero-title em { font-style: normal !important; color: #2E5A43 !important; }
@@ -96,7 +97,7 @@ def _today():
 def for_homeowners():
     cap = C.REBATE_CAP["single_family"]
     with st.container(key="homeband"):
-        left, right = st.columns([1, 1.15], gap="large")
+        left, right = st.columns([0.75, 1.25], gap="large")
         with left:
             st.markdown('<div class="section-title" style="margin-top:0">For homeowners</div>',
                         unsafe_allow_html=True)
