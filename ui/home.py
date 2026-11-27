@@ -39,10 +39,16 @@ TRUST = ('<div class="trust"><div class="t">Complies with</div><div class="row">
          '<span>Valley Water Rebate Program</span><span>California MWELO</span>'
          '<span>AB 1572</span><span>CIMIS climate data</span></div></div>')
 HOME_CSS = """<style>
-.aud { font-size: 1.3rem; font-weight: 600; color: #2E5A43; margin: 0 0 .7rem; }
-.st-key-herophoto .trust { margin: 1.6rem 0 0; }
+.aud { font-size: clamp(1.5rem, 2.2vw, 1.85rem); font-weight: 600; line-height: 1.2; color: #2E5A43; margin: 0 0 .8rem; }
+.st-key-herophoto { position: relative; }
+.st-key-herophoto .trust { position: absolute; right: 2rem; bottom: 2rem; margin: 0; text-align: right; max-width: 34%; }
 .st-key-herophoto .trust .t { color: rgba(255,255,255,.85); }
-.st-key-herophoto .trust .row { color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+.st-key-herophoto .trust .row { justify-content: flex-end; gap: .3rem 1.4rem; font-size: 1.05rem;
+  color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+@media (max-width: 1100px) {
+  .st-key-herophoto .trust { position: static; max-width: none; text-align: center; margin-top: 1rem; }
+  .st-key-herophoto .trust .row { justify-content: center; }
+}
 .st-key-cta_home button, .st-key-cta_hoa button { padding: .9rem 2rem !important; min-height: 3.4rem; }
 .st-key-cta_home button p, .st-key-cta_hoa button p { font-size: 1.15rem !important; }
 </style>"""
