@@ -98,12 +98,8 @@ def for_homeowners():
     with st.container(key="homeband"):
         left, right = st.columns([1, 1.15], gap="large")
         with left:
-            st.markdown(f'<div class="section-title" style="margin-top:0">For homeowners</div>'
-                        f'<p class="lead">See your own yard as a finished garden before you spend a dollar. '
-                        f'Valley Water pays at least ${C.REBATE_PER_SQFT:.0f} for every square foot of lawn you replace, '
-                        f'up to ${cap:,}, more in some cities. For a 500 sq ft lawn that is at least $1,000, '
-                        f'roughly a quarter to two-thirds of what it costs to do it yourself. A lawn uses roughly '
-                        f'four times the water of a water-wise garden.</p>', unsafe_allow_html=True)
+            st.markdown('<div class="section-title" style="margin-top:0">For homeowners</div>',
+                        unsafe_allow_html=True)
             st.button("Design my yard  →", type="primary", on_click=go_as, args=("studio", "Independent homeowner"), key="cta_home")
         with right:
             st.markdown(roadmap([
@@ -125,9 +121,8 @@ def for_hoas():
                         f'<p class="lead">From <b>January 1, 2029</b>, California law bans watering nonfunctional turf in '
                         f'HOA common areas with drinking water, including the strips along sidewalks, entries, medians and '
                         f'building edges.</p>'
-                        f'<p class="lead">Board votes, budgets, member notices, bids and installation take months, and '
-                        f'Valley Water\'s rebate (up to ${C.REBATE_CAP["multifamily_5plus"]:,} per site) is only funded '
-                        f'until June 30, 2027 or until it runs out. Communities that start now get paid to comply.</p>',
+                        f'<p class="lead">Board votes, budgets, member notices, bids and installation take months. '
+                        f'Communities that start now can still use Valley Water\'s rebate before the funding runs out.</p>',
                         unsafe_allow_html=True)
             st.button("Plan our common areas  →", type="primary", on_click=go_as, args=("studio", "HOA"), key="cta_hoa")
         with right:
