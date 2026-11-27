@@ -69,11 +69,11 @@ if st.session_state.get("_last_page") != page:
     import streamlit.components.v1 as components
     components.html(f"""<script>// page change {st.session_state["_nav_n"]}
 const d = window.parent.document;
-const top = () => {{
+const goTop = () => {{
   const nav = d.querySelector('.st-key-nav');
   if (nav) nav.scrollIntoView({{block: 'start'}});
   d.querySelectorAll('*').forEach(el => {{ if (el.scrollTop > 0) el.scrollTop = 0; }});
   window.parent.scrollTo(0, 0);
 }};
-[0, 150, 500, 1000].forEach(ms => setTimeout(top, ms));
+[0, 150, 500, 1000].forEach(ms => setTimeout(goTop, ms));
 </script>""", height=0)
