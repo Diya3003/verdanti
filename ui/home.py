@@ -32,19 +32,19 @@ def hero_photo():
 
 
 AUDIENCE = '<div class="aud-banner">For Homeowners and HOAs in Santa Clara County</div>'
-HEADLINE = '<h1 class="hero-title">Replace Your Lawn with a<br><em>Drought-Tolerant Garden</em></h1>'
-LEAD = ('<p class="lead">Upload a photo of your lawn and see it transformed into a water-wise garden. '
+HEADLINE = '<h1 class="hero-title">Replace Your Lawn with a <em>Drought-Tolerant Garden</em></h1>'
+LEAD = ('<p class="hero-sub">Upload a photo of your lawn and see it transformed into a water-wise garden. '
         'From there, see the rebates you qualify for and find local landscapers to bring it to life.</p>')
 TRUST = ('<div class="trust"><div class="t">Complies with</div><div class="row">'
          '<span>Valley Water Rebate Program</span><span>California MWELO</span>'
          '<span>AB 1572</span><span>CIMIS climate data</span></div></div>')
 HOME_CSS = """<style>
-.aud-banner { background: #2E5A43; color: #F4F1EA !important; text-align: center; font-size: 1.35rem; font-weight: 600; letter-spacing: .01em; padding: .75rem 1rem; border-radius: 14px; margin: 0 0 1rem; }
-.hero-title { font-size: clamp(2.2rem, 4vw, 3.2rem) !important; font-weight: 600 !important; line-height: 1.1 !important; text-align: center; color: #1D2A22 !important; margin: .4rem 0 1.2rem !important; }
+.aud-banner { background: #2E5A43; color: #F4F1EA !important; text-align: center; font-size: 1.25rem; font-weight: 600; letter-spacing: .01em; padding: .5rem 1rem; border-radius: 12px; margin: 0 0 1.6rem; }
+.hero-title { font-size: clamp(1.8rem, 3vw, 2.7rem) !important; font-weight: 600 !important; line-height: 1.1 !important; text-align: center; color: #1D2A22 !important; margin: 0 0 .8rem !important; padding: 0 !important; }
+@media (min-width: 900px) { .hero-title { white-space: nowrap; } }
 .hero-title em { font-style: normal !important; color: #2E5A43 !important; }
-.st-key-herocard { max-width: 420px !important; padding: 1.8rem 1.8rem 1.5rem !important; }
-.st-key-herocard .lead { font-size: 1.22rem !important; line-height: 1.6 !important; color: #2C3A30 !important; margin: 0 !important; }
-.st-key-herophoto { position: relative; }
+.hero-sub { font-size: 1.2rem !important; line-height: 1.6 !important; color: #4E5348 !important; text-align: center; max-width: 40rem; margin: 0 auto 1.6rem !important; }
+.st-key-herophoto { position: relative; min-height: 460px !important; }
 .st-key-herophoto .trust { position: absolute; right: 2rem; bottom: 2rem; margin: 0; text-align: right; max-width: 34%; }
 .st-key-herophoto .trust .t { color: rgba(255,255,255,.85); }
 .st-key-herophoto .trust .row { justify-content: flex-end; gap: .3rem 1.4rem; font-size: 1.05rem;
@@ -65,8 +65,6 @@ def photo_hero(path):
                 f"rgba(0,0,0,.55)), url('data:image/jpeg;base64,{theme.img_b64(img, 80)}'); }}</style>",
                 unsafe_allow_html=True)
     with st.container(key="herophoto"):
-        with st.container(key="herocard"):
-            st.markdown(LEAD, unsafe_allow_html=True)
         st.markdown(TRUST, unsafe_allow_html=True)
 
 
@@ -74,7 +72,7 @@ def dark_hero():
     with st.container(key="hero"):
         left, right = st.columns([1.25, 1], gap="large")
         with left:
-            st.markdown(LEAD, unsafe_allow_html=True)
+            st.markdown(TRUST, unsafe_allow_html=True)
         with right:
             st.markdown(theme.SPRIG, unsafe_allow_html=True)
 
@@ -181,11 +179,9 @@ def faqs():
 def render():
     st.markdown(HOME_CSS, unsafe_allow_html=True)
     st.markdown(AUDIENCE, unsafe_allow_html=True)
-    st.markdown(HEADLINE, unsafe_allow_html=True)
+    st.markdown(HEADLINE + LEAD, unsafe_allow_html=True)
     photo = hero_photo()
     photo_hero(photo) if photo else dark_hero()
-    if not photo:
-        st.markdown(TRUST, unsafe_allow_html=True)
     pairs = gallery_pairs()
     if len(pairs) > 1:
         st.markdown('<div class="section-title">Real yards, redesigned</div>', unsafe_allow_html=True)
