@@ -98,7 +98,7 @@ def plan():
 
 
 def plants():
-       st.markdown('<h1 style="margin-top:0">Plant library</h1>'
+    st.markdown('<h1 style="margin-top:0">Plant library</h1>'
                 '<p class="note">Every plant used in our designs comes from this list, and every one '
                 'qualifies for Valley Water\'s lawn rebate.</p>', unsafe_allow_html=True)
     q = st.text_input("Search by scientific or common name", "sage", label_visibility="collapsed",
