@@ -40,6 +40,8 @@ TRUST = ('<div class="trust"><div class="t">Complies with</div><div class="row">
          '<span>AB 1572</span><span>CIMIS climate data</span></div></div>')
 HOME_CSS = """<style>
 .st-key-herocard p.aud, .st-key-hero p.aud { font-size: clamp(1.6rem, 2.4vw, 2rem) !important; font-weight: 600 !important; line-height: 1.2 !important; color: #2E5A43 !important; margin: 0 0 .8rem !important; }
+.st-key-herocard h1, .st-key-hero h1 { font-size: clamp(2.8rem, 5vw, 4.2rem) !important; text-wrap: balance; }
+.st-key-herocard h1 em, .st-key-hero h1 em { font-style: normal !important; }
 .st-key-herophoto { position: relative; }
 .st-key-herophoto .trust { position: absolute; right: 2rem; bottom: 2rem; margin: 0; text-align: right; max-width: 34%; }
 .st-key-herophoto .trust .t { color: rgba(255,255,255,.85); }
