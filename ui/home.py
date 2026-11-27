@@ -40,8 +40,8 @@ TRUST = ('<div class="trust"><div class="t">Complies with</div><div class="row">
          '<span>AB 1572</span><span>CIMIS climate data</span></div></div>')
 HOME_CSS = """<style>
 .aud-banner { background: #2E5A43; color: #F4F1EA !important; text-align: center; font-size: 1.35rem; font-weight: 600; letter-spacing: .01em; padding: .75rem 1rem; border-radius: 14px; margin: 0 0 1rem; }
-.st-key-herocard { max-width: 460px !important; padding: 2rem 2rem 1.6rem !important; }
-.st-key-herocard h1, .st-key-hero h1 { font-size: clamp(1.7rem, 2.4vw, 2.05rem) !important; line-height: 1.12 !important; }
+.st-key-herocard { max-width: 380px !important; padding: 1.8rem 1.8rem 1.5rem !important; }
+.st-key-herocard h1, .st-key-hero h1 { font-size: clamp(1.5rem, 2vw, 1.65rem) !important; line-height: 1.12 !important; }
 .st-key-herocard h1 em, .st-key-hero h1 em { font-style: normal !important; }
 .st-key-herophoto { position: relative; }
 .st-key-herophoto .trust { position: absolute; right: 2rem; bottom: 2rem; margin: 0; text-align: right; max-width: 34%; }
